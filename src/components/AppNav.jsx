@@ -15,16 +15,18 @@ const NAV_ITEMS = [
 
 export default function AppNav({ view, onChangeView }) {
   return (
-    <div className="nav-bar-strip no-print">
+    <nav className="nav-bar-strip" aria-label="Primary sections">
       {NAV_ITEMS.map(([key, label]) => (
-        <div
+        <button
           key={key}
+          type="button"
           className={`nav-step ${view === key ? "active" : ""}`}
+          aria-current={view === key ? "page" : undefined}
           onClick={() => onChangeView(key)}
         >
           {label}
-        </div>
+        </button>
       ))}
-    </div>
+    </nav>
   );
 }
